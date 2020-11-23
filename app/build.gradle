@@ -22,7 +22,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    configurations {
+        all { // You should exclude one of them not both of them
+            exclude group: "aopalliance", module: "aopalliance"
+        }
+    }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/LICENSE'
@@ -37,6 +41,7 @@ android {
         exclude 'META-INF/spring.handlers'
         exclude 'META-INF/INDEX.LIST'
         exclude("META-INF/*.kotlin_module")
+        exclude 'META-INF/spring.factories'
      }
 
     compileOptions {
@@ -52,12 +57,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
-    implementation group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
     implementation group: 'org.springframework.security', name: 'spring-security-core', version: '5.4.1'
     implementation group: 'org.springframework', name: 'spring-context', version: '5.2.7.RELEASE'
     implementation group: 'org.springframework.boot', name: 'spring-boot', version: '2.4.0'
     implementation group: 'org.springframework', name: 'spring-web', version: '5.3.1'
-
+    //implementation group: 'org.springframework.android', name: 'spring-android-rest-template', version: '2.0.0.M3'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.3'
 
 }

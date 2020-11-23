@@ -2,11 +2,13 @@ package com.example.billbro.User;
 
 import com.example.billbro.Party.Party;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class User implements Serializable {
     private int u_id;
     private String username;
     private String name;

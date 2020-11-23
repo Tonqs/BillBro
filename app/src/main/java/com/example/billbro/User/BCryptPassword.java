@@ -19,4 +19,8 @@ public class BCryptPassword {
     public String getHashed() {
         return hashed;
     }
+
+    public User getUser() {
+        return user;
+    }
 }
