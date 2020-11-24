@@ -23,7 +23,7 @@ public class   UserService {
     private RestTemplate restTemplate;
     private BCryptPassword bCryptPassword;
     private User user;
-    private String baseUrl = "http://192.168.1.21:8091/api/user";
+    private String baseUrl = "http://192.168.1.21:8091/api/";
 
 //    public UserService(RestTemplate restTemplate) {
 //        this.restTemplate = restTemplate;
@@ -45,7 +45,7 @@ public class   UserService {
 
     public User getUser(int u_id){
         try{
-            return (User) restTemplate.exchange(baseUrl + "userfind/"+u_id,
+            return (User) restTemplate.exchange(baseUrl + "user/"+u_id,
                     HttpMethod.GET, null, new ParameterizedTypeReference<User>() {
                     }).getBody();
         }catch (Exception e){
